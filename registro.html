@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro de Compradores</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    header {
+      background-color: #7b0f1c;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #f0f0f0;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 50px;
+    }
+
+    .volver {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .volver a {
+      text-decoration: none;
+      color: white;
+      background-color: #7b0f1c;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .volver a:hover {
+      background-color: #5a0c15;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Lúdica Games - Registro</h1>
+  </header>
+
+  <main class="container my-5">
+    <form id="registroForm" class="needs-validation" novalidate>
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre completo</label>
+        <input type="text" class="form-control" id="nombre" required>
+      </div>
+      <div class="mb-3">
+        <label for="usuario" class="form-label">Nombre de usuario</label>
+        <input type="text" class="form-control" id="usuario" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Correo electrónico</label>
+        <input type="email" class="form-control" id="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="clave" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="clave" required>
+      </div>
+      <div class="mb-3">
+        <label for="reclave" class="form-label">Repetir contraseña</label>
+        <input type="password" class="form-control" id="reclave" required>
+      </div>
+      <div class="mb-3">
+        <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
+        <input type="date" class="form-control" id="fechaNacimiento" required>
+      </div>
+      <div class="mb-3">
+        <label for="direccion" class="form-label">Dirección de despacho (opcional)</label>
+        <input type="text" class="form-control" id="direccion">
+      </div>
+      <button type="submit" class="btn btn-primary">Registrar</button>
+      <button type="reset" class="btn btn-secondary">Limpiar</button>
+    </form>
+
+    <div class="volver">
+      <a href="index.html">← Volver al inicio</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Lúdica Games. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="js/validaciones.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
