@@ -3,45 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Juegos Familiares</title>
+  <title>Juegos Familiares | Lúdica Games</title>
+
+  <!-- Bootstrap 5 -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <!-- Estilos propios -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header>
-    <h1>Juegos Familiares</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="estrategia.html">Estrategia</a></li>
-        <li><a href="cooperativos.html">Cooperativos</a></li>
-        <li><a href="infantiles.html">Infantiles</a></li>
+
+  <!-- ▸ NAVBAR (común) ◂ -->
+<header class="navbar navbar-expand-lg navbar-dark bg-principal px-3">
+    <a class="navbar-brand fw-bold" href="index.html">Lúdica Games</a>
+
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="menu" class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="estrategia.html">Estrategia</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="familiares.html">Familiares</a></li>
+        <li class="nav-item"><a class="nav-link" href="cooperativos.html">Cooperativos</a></li>
+        <li class="nav-item"><a class="nav-link" href="infantiles.html">Infantiles</a></li>
       </ul>
-    </nav>
+
+      <ul class="navbar-nav">
+        <li class="nav-item d-none" id="nav-admin">
+          <a class="nav-link" href="admin.html">Panel Admin</a>
+        </li>
+        <li class="nav-item d-none" id="nav-user">
+          <span class="nav-link" id="usuario-header"></span>
+        </li>
+        <li class="nav-item" id="nav-login">
+          <a class="nav-link" href="login.html">Iniciar sesión</a>
+        </li>
+        <li class="nav-item d-none" id="nav-logout">
+          <a class="nav-link" href="#" onclick="cerrarSesion()">Salir</a>
+        </li>
+      </ul>
+    </div>
   </header>
-  <main>
-    <section class="fichas-juegos">
-      <div class="juego">
-        <img src="img/juegos/familiares1.jpg" alt="Juego 1">
-        <h2>Cosas Locas</h2>
-        <p>Un juego para reír en familia con pruebas alocadas y divertidas.</p>
-        <p>Precio: $14.990</p>
-        <p class="descuento">¡Con descuento!</p>
+  <!-- ▸ FIN NAVBAR ◂ -->
+
+  <main class="container py-4">
+    <h1 class="mb-4 text-center">Juegos Familiares</h1>
+
+    <div class="row g-4">
+
+      <!-- Juego 1 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm juego">
+          <img src="img/juegos/familiares1.jpg" class="card-img-top" alt="Cosas Locas">
+          <div class="card-body text-center">
+            <h5 class="card-title">Cosas Locas</h5>
+            <p class="card-text">Un juego para reír en familia con pruebas alocadas y divertidas.</p>
+            <p class="fw-bold mb-0">Precio: $14 990</p>
+            <p class="descuento mb-0">¡Con descuento!</p>
+          </div>
+        </div>
       </div>
-      <div class="juego">
-        <img src="img/juegos/familiares2.jpg" alt="Juego 2">
-        <h2>Sabiduría en Casa</h2>
-        <p>Juego de preguntas y respuestas para toda la familia.</p>
-        <p>Precio: $18.990</p>
-        <p>Sin descuento</p>
+
+      <!-- Juego 2 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm juego">
+          <img src="img/juegos/familiares2.jpg" class="card-img-top" alt="Sabiduría en Casa">
+          <div class="card-body text-center">
+            <h5 class="card-title">Sabiduría en Casa</h5>
+            <p class="card-text">Juego de preguntas y respuestas para toda la familia.</p>
+            <p class="fw-bold mb-0">Precio: $18 990</p>
+            <p class="mb-0">Sin descuento</p>
+          </div>
+        </div>
       </div>
-      <div class="juego">
-        <img src="img/juegos/familiares3.jpg" alt="Juego 3">
-        <h2>Conexión Familiar</h2>
-        <p>Conecta ideas, anécdotas y risas en un tablero único.</p>
-        <p>Precio: $16.500</p>
-        <p>Sin descuento</p>
+
+      <!-- Juego 3 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm juego">
+          <img src="img/juegos/familiares3.jpg" class="card-img-top" alt="Conexión Familiar">
+          <div class="card-body text-center">
+            <h5 class="card-title">Conexión Familiar</h5>
+            <p class="card-text">Conecta ideas, anécdotas y risas en un tablero único.</p>
+            <p class="fw-bold mb-0">Precio: $16 500</p>
+            <p class="mb-0">Sin descuento</p>
+          </div>
+        </div>
       </div>
-    </section>
+
+    </div>
   </main>
+
+  <!-- Bootstrap JS + Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Lógica de autenticación -->
+  <script src="js/auth.js"></script>
 </body>
 </html>

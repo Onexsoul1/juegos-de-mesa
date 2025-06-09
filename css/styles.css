@@ -111,3 +111,35 @@ footer {
   color: var(--color-texto);
   background-color: transparent;
 }
+/* --- RE-ESTILIZA EL NAVBAR DE BOOTSTRAP CON TUS COLORES --- */
+:root{
+  --color-principal:#6e0d16;      /* ya existía en tu hoja */
+  --color-hover:#5a0c15;          /* tono un poco más oscuro */
+}
+
+.bg-principal{ background-color:var(--color-principal)!important; }
+
+.navbar-dark.bg-principal .navbar-brand,
+.navbar-dark.bg-principal .nav-link{
+  color:#fff!important;
+  font-weight:bold;
+  transition:transform .3s;
+}
+.navbar-dark.bg-principal .nav-link:hover{
+  transform:scale(1.1);
+  color:#fff!important;
+}
+
+/* --- TARJETAS con el “look” previo --- */
+.card.categoria,
+.card.juego{
+  background:#fff;
+  border-radius:10px;
+  box-shadow:0 0 10px rgba(0,0,0,.1);
+}
+.card.categoria:hover,
+.card.juego:hover{
+  transform:translateY(-5px);
+  animation:flotar .5s ease-in-out;
+}
+
