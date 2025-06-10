@@ -64,44 +64,43 @@
 
   <!-- ====== SCRIPTS ====== -->
   <script src="js/auth.js"></script> <!-- contiene ADMIN_CREDENTIALS -->
-  <script>
-    /* Validación Bootstrap simple */
+    <script>
+    /* Validación Bootstrap básica */
     (() => {
-      'use strict';
-      const forms = document.querySelectorAll('.needs-validation');
-      Array.from(forms).forEach(form => {
-        form.addEventListener('submit', event => {
-          if (!form.checkValidity()) { event.preventDefault(); event.stopPropagation(); }
-          form.classList.add('was-validated');
+        'use strict';
+        const forms = document.querySelectorAll('.needs-validation');
+        Array.from(forms).forEach(f => {
+        f.addEventListener('submit', ev => {
+            if (!f.checkValidity()) { ev.preventDefault(); ev.stopPropagation(); }
+            f.classList.add('was-validated');
         }, false);
-      });
+        });
     })();
 
-    /* Lógica de inicio de sesión */
+    /* ====== LÓGICA DE INICIO DE SESIÓN ====== */
     loginForm.addEventListener('submit', e => {
-      e.preventDefault();
+        e.preventDefault();
 
-      const user = usuario.value.trim();
-      const pass = clave.value;
-      let   rol  = 'usuario';
+        const user = usuario.value.trim();
+        const pass = clave.value;
 
-      /* Si coincide con la cuenta ADMIN predefinida */
-      if (user === ADMIN_CREDENTIALS.usuario && pass === ADMIN_CREDENTIALS.clave) {
-        rol = 'admin';
-      }
+        /* ¿Coincide con la cuenta admin predefinida?  (user en minúsculas) */
+        const esAdmin =
+        user.toLowerCase() === ADMIN_CREDENTIALS.usuario &&
+        pass === ADMIN_CREDENTIALS.clave;
 
-      /* Guardar sesión */
-      const sesion = {
+        /* Construir objeto sesión */
+        const sesion = {
         usuario : user,
-        rol     : rol,
-        email   : (rol === 'admin') ? ADMIN_CREDENTIALS.email : (correoDemo.value.trim() || '')
-      };
-      localStorage.setItem('sesionActiva', JSON.stringify(sesion));
+        rol     : esAdmin ? 'admin'   : 'usuario',
+        email   : esAdmin ? ADMIN_CREDENTIALS.email
+                            : (correoDemo.value.trim() || '')
+        };
 
-      /* Redirigir a inicio */
-      location.href = 'index.html';
+        localStorage.setItem('sesionActiva', JSON.stringify(sesion));
+        location.href = 'index.html';
     });
-  </script>
+    </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -25,8 +25,9 @@ const ADMIN_CREDENTIALS = {
 
     // Rellenar texto del enlace al perfil
     if (aUser) {
-      aUser.innerHTML = `&#128100; ${sesion.usuario}`; // 👤 (unicode)
-      // Si el HTML aún era <span>, lo convertimos a <a> al vuelo
+        const esAdmin = (sesion.rol === 'admin');
+        aUser.innerHTML = esAdmin ? '⚙️ Panel&nbsp;Admin' : `&#128100; ${sesion.usuario}`;
+        aUser.href      = esAdmin ? 'admin.html' : 'profile.html';
       if (aUser.tagName !== 'A') {
         const link = document.createElement('a');
         link.className = 'nav-link';
