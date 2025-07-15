@@ -1,0 +1,100 @@
+<header class="navbar navbar-expand-lg navbar-dark bg-principal px-3">
+  <a class="navbar-brand fw-bold" routerLink="/">Lúdica Games</a>
+
+  <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div id="menu" class="collapse navbar-collapse">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item"><a class="nav-link" routerLink="/estrategia">Estrategia</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/familiares">Familiares</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/cooperativos">Cooperativos</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/infantiles">Infantiles</a></li>
+      <li *ngIf="sesion" class="nav-item">
+        <a class="nav-link" routerLink="/profile">
+          👤 Mi Perfil
+        </a>
+      </li>
+      <li *ngIf="sesion?.rol === 'admin'" class="nav-item">
+        <a class="nav-link" routerLink="/admin">Panel Admin</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav">
+      <li *ngIf="!sesion" class="nav-item">
+        <a class="nav-link" routerLink="/login">Iniciar sesión</a>
+      </li>
+      <li *ngIf="sesion" class="nav-item">
+        <span class="nav-link">👤 {{ sesion.usuario }}</span>
+      </li>
+      <li *ngIf="sesion" class="nav-item">
+        <a class="nav-link" href="#" (click)="cerrarSesion()">Salir</a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<main class="container py-4">
+  <div class="card shadow-sm border-0">
+    <div class="card-header bg-principal text-white">
+      <h4 class="mb-0">Administrar Productos</h4>
+    </div>
+    <div class="card-body">
+
+      <!-- Tabla de productos -->
+      <table class="table table-striped align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Categoría</th>
+            <th class="text-end">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of productos">
+            <ng-container *ngIf="editando?.id !== p.id; else editRow">
+              <td>{{ p.nombre }}</td>
+              <td>{{ p.precio | currency:'CLP' }}</td>
+              <td>{{ p.categoria }}</td>
+              <td class="text-end">
+                <button class="btn btn-sm btn-primary me-1" (click)="editar(p)">Editar</button>
+                <button class="btn btn-sm btn-danger" (click)="eliminar(p.id)">Eliminar</button>
+              </td>
+            </ng-container>
+            <ng-template #editRow>
+              <td><input class="form-control" [(ngModel)]="editando!.nombre"></td>
+              <td><input class="form-control" type="number" [(ngModel)]="editando!.precio"></td>
+              <td><input class="form-control" [(ngModel)]="editando!.categoria"></td>
+              <td class="text-end">
+                <button class="btn btn-sm btn-success me-1" (click)="guardarEdicion()">Guardar</button>
+                <button class="btn btn-sm btn-secondary" (click)="cancelarEdicion()">Cancelar</button>
+              </td>
+            </ng-template>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Formulario agregar nuevo producto -->
+      <div class="card mt-4 p-3">
+        <h5 class="mb-3">Agregar Nuevo Producto</h5>
+        <div class="row g-2">
+          <div class="col-md-4">
+            <input class="form-control" placeholder="Nombre" [(ngModel)]="nuevoProducto.nombre">
+          </div>
+          <div class="col-md-3">
+            <input class="form-control" type="number" placeholder="Precio" [(ngModel)]="nuevoProducto.precio">
+          </div>
+          <div class="col-md-3">
+            <input class="form-control" placeholder="Categoría" [(ngModel)]="nuevoProducto.categoria">
+          </div>
+          <div class="col-md-2">
+            <button class="btn btn-dark w-100" (click)="agregarProducto()">Agregar</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>

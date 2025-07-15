@@ -1,0 +1,701 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ludica-games-v2 documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">ludica-games-v2 documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  EstrategiaComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/estrategia/estrategia.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente de la vista de juegos de estrategia.
+Controla el navbar dinámico según la sesión activa.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-estrategia</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./estrategia.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./estrategia.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#actualizarNavbar" >actualizarNavbar</a>
+                            </li>
+                            <li>
+                                <a href="#cerrarSesion" >cerrarSesion</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pages/estrategia/estrategia.ts:15</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor del componente.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio de enrutamiento de Angular.</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actualizarNavbar"></a>
+                    <span class="name">
+                        <span ><b>actualizarNavbar</b></span>
+                        <a href="#actualizarNavbar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>actualizarNavbar()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="37"
+                                    class="link-to-prism">src/app/pages/estrategia/estrategia.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Actualiza los elementos del navbar de acuerdo al estado de sesión:</p>
+<ul>
+<li>Oculta o muestra enlaces según si hay usuario autenticado.</li>
+<li>Muestra el nombre del usuario activo.</li>
+<li>Muestra acceso de administrador si corresponde.</li>
+</ul>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cerrarSesion"></a>
+                    <span class="name">
+                        <span ><b>cerrarSesion</b></span>
+                        <a href="#cerrarSesion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cerrarSesion()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="62"
+                                    class="link-to-prism">src/app/pages/estrategia/estrategia.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Elimina la sesión activa y redirige al login.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="27"
+                                    class="link-to-prism">src/app/pages/estrategia/estrategia.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Hook que se ejecuta al inicializar el componente.
+Llama a la actualización del navbar según la sesión almacenada.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+
+/**
+ * Componente de la vista de juegos de estrategia.
+ * Controla el navbar dinámico según la sesión activa.
+ */
+@Component({
+  selector: &#x27;app-estrategia&#x27;,
+  standalone: true,
+  imports: [],
+  templateUrl: &#x27;./estrategia.html&#x27;,
+  styleUrls: [&#x27;./estrategia.css&#x27;]
+})
+export class EstrategiaComponent implements OnInit {
+
+  /**
+   * Constructor del componente.
+   * @param router Servicio de enrutamiento de Angular.
+   */
+  constructor(private router: Router) {}
+
+  /**
+   * Hook que se ejecuta al inicializar el componente.
+   * Llama a la actualización del navbar según la sesión almacenada.
+   */
+  ngOnInit(): void {
+    this.actualizarNavbar();
+  }
+
+  /**
+   * Actualiza los elementos del navbar de acuerdo al estado de sesión:
+   * - Oculta o muestra enlaces según si hay usuario autenticado.
+   * - Muestra el nombre del usuario activo.
+   * - Muestra acceso de administrador si corresponde.
+   */
+  actualizarNavbar(): void {
+    const sesionRaw &#x3D; localStorage.getItem(&#x27;sesion&#x27;);
+    const navAdmin &#x3D; document.getElementById(&#x27;nav-admin&#x27;);
+    const navUser &#x3D; document.getElementById(&#x27;nav-user&#x27;);
+    const navLogin &#x3D; document.getElementById(&#x27;nav-login&#x27;);
+    const navLogout &#x3D; document.getElementById(&#x27;nav-logout&#x27;);
+    const usuarioHeader &#x3D; document.getElementById(&#x27;usuario-header&#x27;);
+
+    if (sesionRaw) {
+      const sesion &#x3D; JSON.parse(sesionRaw);
+      if (navLogin) navLogin.classList.add(&#x27;d-none&#x27;);
+      if (navLogout) navLogout.classList.remove(&#x27;d-none&#x27;);
+      if (navUser &amp;&amp; usuarioHeader) {
+        navUser.classList.remove(&#x27;d-none&#x27;);
+        usuarioHeader.textContent &#x3D; &#x60;👤 ${sesion.usuario}&#x60;;
+      }
+      if (sesion.rol &#x3D;&#x3D;&#x3D; &#x27;admin&#x27; &amp;&amp; navAdmin) {
+        navAdmin.classList.remove(&#x27;d-none&#x27;);
+      }
+    }
+  }
+
+  /**
+   * Elimina la sesión activa y redirige al login.
+   */
+  cerrarSesion(): void {
+    localStorage.removeItem(&#x27;sesion&#x27;);
+    this.router.navigate([&#x27;/login&#x27;]);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- NAVBAR --&gt;
+&lt;header class&#x3D;&quot;navbar navbar-expand-lg navbar-dark bg-principal px-3&quot;&gt;
+  &lt;a class&#x3D;&quot;navbar-brand fw-bold&quot; routerLink&#x3D;&quot;/&quot;&gt;Lúdica Games&lt;/a&gt;
+
+  &lt;button class&#x3D;&quot;navbar-toggler&quot; data-bs-toggle&#x3D;&quot;collapse&quot; data-bs-target&#x3D;&quot;#menu&quot;&gt;
+    &lt;span class&#x3D;&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+  &lt;/button&gt;
+
+  &lt;div id&#x3D;&quot;menu&quot; class&#x3D;&quot;collapse navbar-collapse&quot;&gt;
+    &lt;ul class&#x3D;&quot;navbar-nav me-auto mb-2 mb-lg-0&quot;&gt;
+      &lt;li class&#x3D;&quot;nav-item&quot;&gt;&lt;a class&#x3D;&quot;nav-link active&quot; aria-current&#x3D;&quot;page&quot; routerLink&#x3D;&quot;/estrategia&quot;&gt;Estrategia&lt;/a&gt;&lt;/li&gt;
+      &lt;li class&#x3D;&quot;nav-item&quot;&gt;&lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;/familiares&quot;&gt;Familiares&lt;/a&gt;&lt;/li&gt;
+      &lt;li class&#x3D;&quot;nav-item&quot;&gt;&lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;/cooperativos&quot;&gt;Cooperativos&lt;/a&gt;&lt;/li&gt;
+      &lt;li class&#x3D;&quot;nav-item&quot;&gt;&lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;/infantiles&quot;&gt;Infantiles&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;ul class&#x3D;&quot;navbar-nav&quot;&gt;
+      &lt;li class&#x3D;&quot;nav-item d-none&quot; id&#x3D;&quot;nav-admin&quot;&gt;
+        &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;/admin&quot;&gt;Panel Admin&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class&#x3D;&quot;nav-item d-none&quot; id&#x3D;&quot;nav-user&quot;&gt;
+        &lt;span class&#x3D;&quot;nav-link&quot; id&#x3D;&quot;usuario-header&quot;&gt;&lt;/span&gt;
+      &lt;/li&gt;
+      &lt;li class&#x3D;&quot;nav-item&quot; id&#x3D;&quot;nav-login&quot;&gt;
+        &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;/login&quot;&gt;Iniciar sesión&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class&#x3D;&quot;nav-item d-none&quot; id&#x3D;&quot;nav-logout&quot;&gt;
+        &lt;a class&#x3D;&quot;nav-link&quot; href&#x3D;&quot;#&quot; (click)&#x3D;&quot;cerrarSesion()&quot;&gt;Salir&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+
+&lt;!-- CONTENIDO --&gt;
+&lt;main class&#x3D;&quot;container py-4&quot;&gt;
+  &lt;h1 class&#x3D;&quot;mb-4 text-center&quot;&gt;Juegos de Estrategia&lt;/h1&gt;
+
+  &lt;div class&#x3D;&quot;row g-4&quot;&gt;
+
+    &lt;!-- Juego 1 --&gt;
+    &lt;div class&#x3D;&quot;col-12 col-md-6 col-lg-4&quot;&gt;
+      &lt;div class&#x3D;&quot;card h-100 shadow-sm juego&quot;&gt;
+        &lt;img src&#x3D;&quot;assets/img/juegos/estrategia1.jpg&quot; class&#x3D;&quot;card-img-top&quot; alt&#x3D;&quot;Dominación Total&quot;&gt;
+        &lt;div class&#x3D;&quot;card-body text-center&quot;&gt;
+          &lt;h5 class&#x3D;&quot;card-title&quot;&gt;Dominación Total&lt;/h5&gt;
+          &lt;p class&#x3D;&quot;card-text&quot;&gt;Conquista territorios, forja alianzas y vence a tus enemigos en este juego de estrategia profunda.&lt;/p&gt;
+          &lt;p class&#x3D;&quot;fw-bold mb-0&quot;&gt;Precio: $24 990&lt;/p&gt;
+          &lt;p class&#x3D;&quot;descuento mb-0&quot;&gt;¡Con descuento!&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Juego 2 --&gt;
+    &lt;div class&#x3D;&quot;col-12 col-md-6 col-lg-4&quot;&gt;
+      &lt;div class&#x3D;&quot;card h-100 shadow-sm juego&quot;&gt;
+        &lt;img src&#x3D;&quot;assets/img/juegos/estrategia2.jpg&quot; class&#x3D;&quot;card-img-top&quot; alt&#x3D;&quot;Imperios del Norte&quot;&gt;
+        &lt;div class&#x3D;&quot;card-body text-center&quot;&gt;
+          &lt;h5 class&#x3D;&quot;card-title&quot;&gt;Imperios del Norte&lt;/h5&gt;
+          &lt;p class&#x3D;&quot;card-text&quot;&gt;Gestiona recursos y expande tu imperio con sabiduría.&lt;/p&gt;
+          &lt;p class&#x3D;&quot;fw-bold mb-0&quot;&gt;Precio: $29 990&lt;/p&gt;
+          &lt;p class&#x3D;&quot;mb-0&quot;&gt;Sin descuento&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Juego 3 --&gt;
+    &lt;div class&#x3D;&quot;col-12 col-md-6 col-lg-4&quot;&gt;
+      &lt;div class&#x3D;&quot;card h-100 shadow-sm juego&quot;&gt;
+        &lt;img src&#x3D;&quot;assets/img/juegos/estrategia3.jpg&quot; class&#x3D;&quot;card-img-top&quot; alt&#x3D;&quot;La Fortaleza&quot;&gt;
+        &lt;div class&#x3D;&quot;card-body text-center&quot;&gt;
+          &lt;h5 class&#x3D;&quot;card-title&quot;&gt;La Fortaleza&lt;/h5&gt;
+          &lt;p class&#x3D;&quot;card-text&quot;&gt;Defiende tu castillo de hordas invasoras con planificación y reflejos rápidos.&lt;/p&gt;
+          &lt;p class&#x3D;&quot;fw-bold mb-0&quot;&gt;Precio: $21 990&lt;/p&gt;
+          &lt;p class&#x3D;&quot;descuento mb-0&quot;&gt;¡Con descuento!&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/main&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./estrategia.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- NAVBAR --><header class="navbar navbar-expand-lg navbar-dark bg-principal px-3">  <a class="navbar-brand fw-bold" routerLink="/">Lúdica Games</a>  <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">    <span class="navbar-toggler-icon"></span>  </button>  <div id="menu" class="collapse navbar-collapse">    <ul class="navbar-nav me-auto mb-2 mb-lg-0">      <li class="nav-item"><a class="nav-link active" aria-current="page" routerLink="/estrategia">Estrategia</a></li>      <li class="nav-item"><a class="nav-link" routerLink="/familiares">Familiares</a></li>      <li class="nav-item"><a class="nav-link" routerLink="/cooperativos">Cooperativos</a></li>      <li class="nav-item"><a class="nav-link" routerLink="/infantiles">Infantiles</a></li>    </ul>    <ul class="navbar-nav">      <li class="nav-item d-none" id="nav-admin">        <a class="nav-link" routerLink="/admin">Panel Admin</a>      </li>      <li class="nav-item d-none" id="nav-user">        <span class="nav-link" id="usuario-header"></span>      </li>      <li class="nav-item" id="nav-login">        <a class="nav-link" routerLink="/login">Iniciar sesión</a>      </li>      <li class="nav-item d-none" id="nav-logout">        <a class="nav-link" href="#" (click)="cerrarSesion()">Salir</a>      </li>    </ul>  </div></header><!-- CONTENIDO --><main class="container py-4">  <h1 class="mb-4 text-center">Juegos de Estrategia</h1>  <div class="row g-4">    <!-- Juego 1 -->    <div class="col-12 col-md-6 col-lg-4">      <div class="card h-100 shadow-sm juego">        <img src="assets/img/juegos/estrategia1.jpg" class="card-img-top" alt="Dominación Total">        <div class="card-body text-center">          <h5 class="card-title">Dominación Total</h5>          <p class="card-text">Conquista territorios, forja alianzas y vence a tus enemigos en este juego de estrategia profunda.</p>          <p class="fw-bold mb-0">Precio: $24 990</p>          <p class="descuento mb-0">¡Con descuento!</p>        </div>      </div>    </div>    <!-- Juego 2 -->    <div class="col-12 col-md-6 col-lg-4">      <div class="card h-100 shadow-sm juego">        <img src="assets/img/juegos/estrategia2.jpg" class="card-img-top" alt="Imperios del Norte">        <div class="card-body text-center">          <h5 class="card-title">Imperios del Norte</h5>          <p class="card-text">Gestiona recursos y expande tu imperio con sabiduría.</p>          <p class="fw-bold mb-0">Precio: $29 990</p>          <p class="mb-0">Sin descuento</p>        </div>      </div>    </div>    <!-- Juego 3 -->    <div class="col-12 col-md-6 col-lg-4">      <div class="card h-100 shadow-sm juego">        <img src="assets/img/juegos/estrategia3.jpg" class="card-img-top" alt="La Fortaleza">        <div class="card-body text-center">          <h5 class="card-title">La Fortaleza</h5>          <p class="card-text">Defiende tu castillo de hordas invasoras con planificación y reflejos rápidos.</p>          <p class="fw-bold mb-0">Precio: $21 990</p>          <p class="descuento mb-0">¡Con descuento!</p>        </div>      </div>    </div>  </div></main></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'App', 'selector': 'app-root'},{'name': 'CategoriaComponent', 'selector': 'app-categoria'},{'name': 'CooperativosComponent', 'selector': 'app-cooperativos'},{'name': 'EstrategiaComponent', 'selector': 'app-estrategia'},{'name': 'FamiliaresComponent', 'selector': 'app-familiares'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'IndexComponent', 'selector': 'app-index'},{'name': 'InfantilesComponent', 'selector': 'app-infantiles'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'Navbar', 'selector': 'app-navbar'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegistroComponent', 'selector': 'app-registro'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'EstrategiaComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'EstrategiaComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

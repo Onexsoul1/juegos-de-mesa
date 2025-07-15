@@ -1,0 +1,99 @@
+<header class="navbar navbar-expand-lg navbar-dark bg-principal px-3">
+  <a class="navbar-brand fw-bold" routerLink="/">Lúdica Games</a>
+
+  <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div id="menu" class="collapse navbar-collapse">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item"><a class="nav-link" routerLink="/estrategia">Estrategia</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/familiares">Familiares</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/cooperativos">Cooperativos</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/infantiles">Infantiles</a></li>
+      <li class="nav-item" *ngIf="usuario">
+        <a class="nav-link" routerLink="/profile">Mi Perfil</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav">
+      <li class="nav-item" *ngIf="esAdmin">
+        <a class="nav-link" routerLink="/admin">Panel Admin</a>
+      </li>
+      <li class="nav-item" *ngIf="usuario">
+        <span class="nav-link">👤 {{ usuario }}</span>
+      </li>
+      <li class="nav-item" *ngIf="!usuario">
+        <a class="nav-link" routerLink="/login">Iniciar sesión</a>
+      </li>
+      <li class="nav-item" *ngIf="usuario">
+        <a class="nav-link" href="#" (click)="cerrarSesion()">Salir</a>
+      </li>
+    </ul>
+  </div>
+</header>
+<main class="d-flex justify-content-center py-5">
+  <div class="card shadow w-100" style="max-width: 500px;">
+    <div class="card-header bg-principal text-white text-center">
+      <h1 class="h4 m-0">Mi perfil</h1>
+    </div>
+
+    <div class="card-body">
+
+      <!-- Datos del usuario -->
+      <dl class="row mb-4">
+        <dt class="col-sm-4 fw-bold">Usuario:</dt>
+        <dd class="col-sm-8">{{ usuario }}</dd>
+
+        <dt class="col-sm-4 fw-bold">Rol:</dt>
+        <dd class="col-sm-8">{{ rol }}</dd>
+
+        <dt class="col-sm-4 fw-bold">Correo:</dt>
+        <dd class="col-sm-8">{{ email || '—' }}</dd>
+      </dl>
+
+      <hr />
+
+      <!-- Actualizar contraseña -->
+      <h2 class="h6 mb-3">Actualizar contraseña</h2>
+      <form (ngSubmit)="guardarClave()" #formPass="ngForm" novalidate>
+
+        <input
+          type="password"
+          class="form-control mb-2"
+          placeholder="Nueva contraseña"
+          [(ngModel)]="nuevaClave"
+          name="nuevaClave"
+          required
+          #nuevaInput="ngModel"
+        />
+        <div *ngIf="nuevaInput.invalid && nuevaInput.touched" class="text-danger small">
+          Debes ingresar una contraseña válida.
+        </div>
+
+        <input
+          type="password"
+          class="form-control mb-3"
+          placeholder="Repetir contraseña"
+          [(ngModel)]="repClave"
+          name="repClave"
+          required
+          #repInput="ngModel"
+        />
+        <div *ngIf="repInput.invalid && repInput.touched" class="text-danger small">
+          Debes repetir la contraseña.
+        </div>
+
+        <button type="submit" class="btn btn-dark w-100" [disabled]="formPass.invalid">Guardar</button>
+      </form>
+
+      <div *ngIf="msgOk" class="alert alert-success mt-3">
+        Contraseña actualizada ✔
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="text-center small py-3 bg-light">
+  &copy; 2025 Lúdica Games
+</footer>

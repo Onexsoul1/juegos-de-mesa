@@ -1,0 +1,5 @@
+[
+  { "id": 1, "nombre": "Producto 1", "precio": 9900, "categoria": "Estrategia" },
+  { "id": 2, "nombre": "Producto 2", "precio": 12990, "categoria": "Familiares" },
+  { "id": 3, "nombre": "Producto 3", "precio": 15990, "categoria": "Infantiles" }
+]

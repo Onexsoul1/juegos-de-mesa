@@ -1,0 +1,80 @@
+<!-- NAVBAR -->
+<header class="navbar navbar-expand-lg navbar-dark bg-principal px-3">
+  <a class="navbar-brand fw-bold" routerLink="/">Lúdica Games</a>
+
+  <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div id="menu" class="collapse navbar-collapse">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item"><a class="nav-link active" aria-current="page" routerLink="/estrategia">Estrategia</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/familiares">Familiares</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/cooperativos">Cooperativos</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/infantiles">Infantiles</a></li>
+    </ul>
+
+    <ul class="navbar-nav">
+      <li class="nav-item d-none" id="nav-admin">
+        <a class="nav-link" routerLink="/admin">Panel Admin</a>
+      </li>
+      <li class="nav-item d-none" id="nav-user">
+        <span class="nav-link" id="usuario-header"></span>
+      </li>
+      <li class="nav-item" id="nav-login">
+        <a class="nav-link" routerLink="/login">Iniciar sesión</a>
+      </li>
+      <li class="nav-item d-none" id="nav-logout">
+        <a class="nav-link" href="#" (click)="cerrarSesion()">Salir</a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<!-- CONTENIDO -->
+<main class="container py-4">
+  <h1 class="mb-4 text-center">Juegos de Estrategia</h1>
+
+  <div class="row g-4">
+
+    <!-- Juego 1 -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card h-100 shadow-sm juego">
+        <img src="assets/img/juegos/estrategia1.jpg" class="card-img-top" alt="Dominación Total">
+        <div class="card-body text-center">
+          <h5 class="card-title">Dominación Total</h5>
+          <p class="card-text">Conquista territorios, forja alianzas y vence a tus enemigos en este juego de estrategia profunda.</p>
+          <p class="fw-bold mb-0">Precio: $24 990</p>
+          <p class="descuento mb-0">¡Con descuento!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Juego 2 -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card h-100 shadow-sm juego">
+        <img src="assets/img/juegos/estrategia2.jpg" class="card-img-top" alt="Imperios del Norte">
+        <div class="card-body text-center">
+          <h5 class="card-title">Imperios del Norte</h5>
+          <p class="card-text">Gestiona recursos y expande tu imperio con sabiduría.</p>
+          <p class="fw-bold mb-0">Precio: $29 990</p>
+          <p class="mb-0">Sin descuento</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Juego 3 -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card h-100 shadow-sm juego">
+        <img src="assets/img/juegos/estrategia3.jpg" class="card-img-top" alt="La Fortaleza">
+        <div class="card-body text-center">
+          <h5 class="card-title">La Fortaleza</h5>
+          <p class="card-text">Defiende tu castillo de hordas invasoras con planificación y reflejos rápidos.</p>
+          <p class="fw-bold mb-0">Precio: $21 990</p>
+          <p class="descuento mb-0">¡Con descuento!</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>

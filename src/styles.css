@@ -1,0 +1,145 @@
+/* styles.css */
+:root {
+  --color-principal: #6e0d16;
+  --color-secundario: #f4f4f4;
+  --color-texto: #333;
+  --color-descuento: #d1001f;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: var(--color-secundario);
+  color: var(--color-texto);
+}
+
+header {
+  background-color: var(--color-principal);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s;
+}
+
+nav a:hover {
+  transform: scale(1.1);
+}
+
+.categorias, .fichas-juegos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.categoria, .juego {
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 280px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.categoria:hover, .juego:hover {
+  transform: translateY(-5px);
+  animation: flotar 0.5s ease-in-out;
+}
+
+.juego img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+.categoria img {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.descuento {
+  color: var(--color-descuento);
+  font-weight: bold;
+}
+
+@keyframes flotar {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes entrada {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.juego {
+  animation: entrada 0.7s ease forwards;
+}
+
+@media screen and (max-width: 768px) {
+  .categorias, .fichas-juegos {
+    flex-direction: column;
+    align-items: center;
+  }
+  nav ul {
+    flex-direction: column;
+  }
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: var(--color-texto);
+  background-color: transparent;
+}
+/* --- RE-ESTILIZA EL NAVBAR DE BOOTSTRAP CON TUS COLORES --- */
+:root{
+  --color-principal:#6e0d16;      /* ya existía en tu hoja */
+  --color-hover:#5a0c15;          /* tono un poco más oscuro */
+}
+
+.bg-principal{ background-color:var(--color-principal)!important; }
+
+.navbar-dark.bg-principal .navbar-brand,
+.navbar-dark.bg-principal .nav-link{
+  color:#fff!important;
+  font-weight:bold;
+  transition:transform .3s;
+}
+.navbar-dark.bg-principal .nav-link:hover{
+  transform:scale(1.1);
+  color:#fff!important;
+}
+
+/* --- TARJETAS con el “look” previo --- */
+.card.categoria,
+.card.juego{
+  background:#fff;
+  border-radius:10px;
+  box-shadow:0 0 10px rgba(0,0,0,.1);
+}
+.card.categoria:hover,
+.card.juego:hover{
+  transform:translateY(-5px);
+  animation:flotar .5s ease-in-out;
+}
+
